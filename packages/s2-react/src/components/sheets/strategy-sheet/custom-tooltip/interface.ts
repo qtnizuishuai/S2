@@ -25,4 +25,17 @@ export interface CustomTooltipProps {
     originalValue: SimpleDataItem,
     cell: S2CellType<Node | ViewMeta>,
   ) => React.ReactNode;
+  /**
+   * 支持自定义指标和衍生指标部分 (copilot)
+   */
+  renderMainLabel?: (
+    currentLabel: React.ReactNode,
+    labelText: string,
+    cell: S2CellType<Node | ViewMeta>,
+  ) => React.ReactNode;
+  renderDerivedLabel?: (
+    currentLabel: React.ReactNode,
+    labelText: string,
+    cell: S2CellType<Node | ViewMeta>,
+  ) => React.ReactNode;
 }

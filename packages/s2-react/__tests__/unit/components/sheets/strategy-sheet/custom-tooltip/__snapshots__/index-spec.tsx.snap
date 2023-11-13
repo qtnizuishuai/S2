@@ -1,5 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`StrategySheet Tooltip Tests should render custom customDerivedLabel 1`] = `
+Array [
+  <li
+    class="derived-value-item"
+  >
+    customDerivedLabel
+    <span
+      class="derived-value-group derived-value-trend-up"
+    >
+      <span
+        class="derived-value-trend-icon"
+      />
+      <span
+        class="derived-value-content"
+      >
+        2
+      </span>
+    </span>
+  </li>,
+  <li
+    class="derived-value-item"
+  >
+    customDerivedLabel
+    <span
+      class="derived-value-group derived-value-trend-up"
+    >
+      <span
+        class="derived-value-trend-icon"
+      />
+      <span
+        class="derived-value-content"
+      >
+        2
+      </span>
+    </span>
+  </li>,
+  <li
+    class="derived-value-item"
+  >
+    customDerivedLabel
+    <span
+      class="derived-value-group derived-value-trend-up"
+    >
+      <span
+        class="derived-value-trend-icon"
+      />
+      <span
+        class="derived-value-content"
+      >
+        2
+      </span>
+    </span>
+  </li>,
+]
+`;
+
 exports[`StrategySheet Tooltip Tests should render custom derived value 1`] = `
 Array [
   <span
@@ -27,6 +83,17 @@ Array [
     customDerivedValue
   </span>,
 ]
+`;
+
+exports[`StrategySheet Tooltip Tests should render custom tooltipHeaderLabel 1`] = `
+<div
+  class="s2-strategy-sheet-tooltip-header"
+>
+  customMainLabel
+  <span>
+    1
+  </span>
+</div>
 `;
 
 exports[`StrategySheet Tooltip Tests should render tooltip with {

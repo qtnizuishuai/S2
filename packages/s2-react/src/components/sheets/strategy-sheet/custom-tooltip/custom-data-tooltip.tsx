@@ -21,6 +21,8 @@ export const StrategySheetDataTooltip: React.FC<CustomTooltipProps> = ({
   label,
   showOriginalValue: showOriginalValueFromTooltip,
   renderDerivedValue,
+  renderMainLabel,
+  renderDerivedLabel,
 }) => {
   const meta = cell.getMeta() as ViewMeta;
   const metaFieldValue = meta?.fieldValue as MultiData<SimpleDataItem[][]>;
@@ -52,11 +54,12 @@ export const StrategySheetDataTooltip: React.FC<CustomTooltipProps> = ({
   const emptyPlaceholder = getEmptyPlaceholder(meta, placeholder);
   const showOriginalValue =
     valuesCfg?.showOriginalValue || showOriginalValueFromTooltip;
+  const mainLabel = <span className="header-label">{rowName}</span>;
 
   return (
     <div className={cls(tooltipCls(), tooltipCls('data'))}>
       <div className={tooltipCls('header')}>
-        <span className={'header-label'}>{rowName}</span>
+        {renderMainLabel?.(mainLabel, rowName as string, cell) ?? mainLabel}
         <span>{value ?? emptyPlaceholder}</span>
       </div>
       {showOriginalValue && (
@@ -79,12 +82,17 @@ export const StrategySheetDataTooltip: React.FC<CustomTooltipProps> = ({
               const originalDerivedValue = derivedOriginalValues[
                 i
               ] as SimpleDataItem;
+              const derivedLabel = (
+                <span className="derived-value-label">{derivedLabels[i]};</span>
+              );
 
               return (
                 <li className="derived-value-item" key={i}>
-                  <span className="derived-value-label">
-                    {derivedLabels[i]}
-                  </span>
+                  {renderDerivedLabel?.(
+                    derivedLabel,
+                    derivedLabels[i] as string,
+                    cell,
+                  ) ?? derivedLabel}
                   <span
                     className={cls('derived-value-group', {
                       'derived-value-trend-up': isUp,

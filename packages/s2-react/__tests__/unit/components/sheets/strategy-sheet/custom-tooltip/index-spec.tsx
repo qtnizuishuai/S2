@@ -77,4 +77,26 @@ describe('StrategySheet Tooltip Tests', () => {
     expect(screen.getAllByText('customDerivedValue')).toHaveLength(3);
     expect(screen.getAllByText('customDerivedValue')).toMatchSnapshot();
   });
+
+  test('should render custom tooltipHeaderLabel', () => {
+    render(
+      <StrategySheetDataTooltip
+        cell={mockCellInfo.mockCell}
+        renderMainLabel={() => 'customMainLabel'}
+      />,
+    );
+    expect(screen.getByText('customMainLabel')).toBeDefined();
+    expect(screen.getByText('customMainLabel')).toMatchSnapshot();
+  });
+
+  test('should render custom customDerivedLabel', () => {
+    render(
+      <StrategySheetDataTooltip
+        cell={mockCellInfo.mockCell}
+        renderDerivedLabel={() => 'customDerivedLabel'}
+      />,
+    );
+    expect(screen.getAllByText('customDerivedLabel')).toHaveLength(3);
+    expect(screen.getAllByText('customDerivedLabel')).toMatchSnapshot();
+  });
 });
